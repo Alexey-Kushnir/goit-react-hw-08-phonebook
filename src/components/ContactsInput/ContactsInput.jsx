@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import React from 'react';
 import {
@@ -7,10 +6,28 @@ import {
   InputValue,
   SubmitButton,
 } from './ContactsInput.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { getContacts } from '../../redux/selectors';
+import { addContact } from '../../redux/contactsSlice';
 
-export const ContactsInput = ({ onSubmit }) => {
+export const ContactsInput = () => {
+  const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
+
+  const handleSubmit = ({ name, number }, { resetForm }) => {
+    if (
+      contacts.some(
+        contact => contact.name.toLowerCase() === name.toLowerCase()
+      )
+    ) {
+      return alert(`${name} is already in contacts.`);
+    }
+    dispatch(addContact({ name, number }));
+    return resetForm();
+  };
+
   return (
-    <Formik initialValues={{ name: '', number: '' }} onSubmit={onSubmit}>
+    <Formik initialValues={{ name: '', number: '' }} onSubmit={handleSubmit}>
       <Container autoComplete="off">
         <InputName htmlFor={'name'}>Name</InputName>
         <InputValue
@@ -32,8 +49,4 @@ export const ContactsInput = ({ onSubmit }) => {
       </Container>
     </Formik>
   );
-};
-
-ContactsInput.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };
