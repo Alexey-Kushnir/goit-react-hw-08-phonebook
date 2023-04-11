@@ -7,8 +7,8 @@ import {
   SubmitButton,
 } from './ContactsInput.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from '../../redux/selectors';
-import { addContact } from '../../redux/contactsSlice';
+import { getContacts } from 'redux/selectors';
+import { addContact } from 'redux/contactsSlice';
 
 export const ContactsInput = () => {
   const dispatch = useDispatch();
@@ -22,6 +22,7 @@ export const ContactsInput = () => {
     ) {
       return alert(`${name} is already in contacts.`);
     }
+
     dispatch(addContact({ name, number }));
     return resetForm();
   };

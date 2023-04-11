@@ -1,62 +1,13 @@
-// import React, { useState, useEffect } from 'react';
-// import { nanoid } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
+
 import { Section } from './Section/Section';
 import { ContactsInput } from './ContactsInput/ContactsInput';
 import { ContactsStorage } from './ContactsStorage/ContactsStorage';
 import { Filter } from './Filter/Filter';
-import { getContacts } from '../redux/selectors';
-
-// const getContacts = () => {
-//   const contactList = JSON.parse(localStorage.getItem('contacts'));
-//   if (contactList) {
-//     return contactList;
-//   }
-//   return [];
-// };
+import { getContacts } from 'redux/selectors';
 
 export const App = () => {
   const contacts = useSelector(getContacts);
-
-  // const [contacts, setContacts] = useState(getContacts);
-  // const [contacts, setContacts] = useState([]);
-
-  // const [filterValue, setFilterValue] = useState('');
-
-  // useEffect(() => {
-  //   localStorage.setItem('contacts', JSON.stringify(contacts));
-  // }, [contacts]);
-
-  // const addContact = ({ name, number }, { resetForm }) => {
-  //   if (
-  //     contacts.some(
-  //       contact => contact.name.toLowerCase() === name.toLowerCase()
-  //     )
-  //   ) {
-  //     return alert(`${name} is already in contacts.`);
-  //   }
-
-  //   setContacts(prevState => [...prevState, { id: nanoid(8), name, number }]);
-  //   return resetForm();
-  // };
-
-  // const deleteContact = contactId => {
-  //   setContacts(prevState => {
-  //     return prevState.filter(contact => contact.id !== contactId);
-  //   });
-  // };
-
-  // const changeFilter = e => {
-  //   setFilterValue(e.currentTarget.value);
-  // };
-
-  // const getVisibleContacts = () => {
-  //   const normalizedFilter = filterValue.toLowerCase();
-
-  //   return contacts.filter(contact =>
-  //     contact.name.toLowerCase().includes(normalizedFilter)
-  //   );
-  // };
 
   return (
     <div
