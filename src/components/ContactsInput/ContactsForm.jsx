@@ -6,11 +6,11 @@ import {
   InputName,
   InputValue,
   SubmitButton,
-} from './ContactsInput.styled';
+} from './ContactsForm.styled';
 import { getContacts } from 'redux/selectors';
 import { addContact } from 'redux/contactsSlice';
 
-export const ContactsInput = () => {
+export const ContactsForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
 

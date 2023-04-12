@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Section } from './Section/Section';
-import { ContactsInput } from './ContactsInput/ContactsInput';
-import { ContactsStorage } from './ContactsStorage/ContactsStorage';
+import { ContactsForm } from './ContactsInput/ContactsForm';
+import { ContactsList } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
 import { getContacts } from 'redux/selectors';
 
@@ -20,13 +20,13 @@ export const App = () => {
       }}
     >
       <Section title="Phonebook">
-        <ContactsInput />
+        <ContactsForm />
       </Section>
       <Section title="Contacts">
         {contacts.length > 0 && (
           <>
             <Filter />
-            <ContactsStorage />
+            <ContactsList />
           </>
         )}
       </Section>
