@@ -1,12 +1,12 @@
 import { Formik } from 'formik';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   Container,
   InputName,
   InputValue,
   SubmitButton,
 } from './ContactsInput.styled';
-import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from 'redux/selectors';
 import { addContact } from 'redux/contactsSlice';
 
@@ -15,12 +15,14 @@ export const ContactsInput = () => {
   const contacts = useSelector(getContacts);
 
   const handleSubmit = ({ name, number }, { resetForm }) => {
-    if (
-      contacts.some(
-        contact => contact.name.toLowerCase() === name.toLowerCase()
-      )
-    ) {
-      return alert(`${name} is already in contacts.`);
+    if (contacts.length > 0) {
+      if (
+        contacts.some(
+          contact => contact.name.toLowerCase() === name.toLowerCase()
+        )
+      ) {
+        return alert(`${name} is already in contacts.`);
+      }
     }
 
     dispatch(addContact({ name, number }));
