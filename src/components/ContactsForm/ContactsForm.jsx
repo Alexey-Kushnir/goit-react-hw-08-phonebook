@@ -7,8 +7,7 @@ import {
   InputValue,
   SubmitButton,
 } from './ContactsForm.styled';
-import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/contactsSlice';
+import { getContacts, addContact } from 'reduxFiles';
 
 export const ContactsForm = () => {
   const dispatch = useDispatch();
