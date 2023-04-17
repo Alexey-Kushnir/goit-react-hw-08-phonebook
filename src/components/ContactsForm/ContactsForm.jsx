@@ -13,7 +13,7 @@ export const ContactsForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
 
-  const handleSubmit = ({ name, number }, { resetForm }) => {
+  const handleSubmit = ({ name, phone }, { resetForm }) => {
     if (contacts.length > 0) {
       if (
         contacts.some(
@@ -24,12 +24,12 @@ export const ContactsForm = () => {
       }
     }
 
-    dispatch(addContact({ name, number }));
+    dispatch(addContact({ name, phone }));
     return resetForm();
   };
 
   return (
-    <Formik initialValues={{ name: '', number: '' }} onSubmit={handleSubmit}>
+    <Formik initialValues={{ name: '', phone: '' }} onSubmit={handleSubmit}>
       <Container autoComplete="off">
         <InputName htmlFor={'name'}>Name</InputName>
         <InputValue
@@ -39,10 +39,10 @@ export const ContactsForm = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-        <InputName htmlFor={'number'}>Number</InputName>
+        <InputName htmlFor={'phone'}>Phone</InputName>
         <InputValue
           type="tel"
-          name="number"
+          name="phone"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required

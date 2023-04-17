@@ -1,12 +1,18 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Section } from './Section/Section';
 import { ContactsForm } from './ContactsForm/ContactsForm';
 import { ContactsList } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
-import { getContacts } from 'reduxFiles';
+import { getContacts, fetchContacts } from 'reduxFiles';
 
 export const App = () => {
-  const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
+  const { items, isLoading, error } = useSelector(getContacts);
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <div
@@ -23,12 +29,16 @@ export const App = () => {
         <ContactsForm />
       </Section>
       <Section title="Contacts">
-        {contacts.length > 0 && (
-          <>
-            <Filter />
-            <ContactsList />
-          </>
-        )}
+        <>
+          {isLoading && <p>Loading tasks...</p>}
+          {error && <p>{error}</p>}
+          {items.length > 0 && (
+            <>
+              <Filter />
+              <ContactsList />
+            </>
+          )}
+        </>
       </Section>
     </div>
   );
