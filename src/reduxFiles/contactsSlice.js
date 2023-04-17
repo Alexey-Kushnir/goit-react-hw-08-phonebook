@@ -25,6 +25,7 @@ const contactSlice = createSlice({
       state.items.splice(index, 1);
     },
   },
+  extraReducers: {},
 });
 
 export const contactsReducer = contactSlice.reducer;
