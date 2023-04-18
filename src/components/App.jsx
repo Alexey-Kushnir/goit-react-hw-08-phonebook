@@ -13,7 +13,7 @@ import {
 
 export const App = () => {
   const dispatch = useDispatch();
-  const items = useSelector(selectContacts);
+  const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
@@ -39,7 +39,7 @@ export const App = () => {
         <>
           {isLoading && !error && <p>Loading contacts...</p>}
           {error && <p>{error}</p>}
-          {items.length > 0 && (
+          {contacts.length > 0 && (
             <>
               <Filter />
               <ContactsList />

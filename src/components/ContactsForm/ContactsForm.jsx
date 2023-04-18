@@ -14,14 +14,12 @@ export const ContactsForm = () => {
   const contacts = useSelector(selectContacts);
 
   const handleSubmit = ({ name, phone }, { resetForm }) => {
-    if (contacts.length > 0) {
-      if (
-        contacts.some(
-          contact => contact.name.toLowerCase() === name.toLowerCase()
-        )
-      ) {
-        return alert(`${name} is already in contacts.`);
-      }
+    if (
+      contacts.find(
+        contact => contact.name.toLowerCase() === name.toLowerCase()
+      )
+    ) {
+      return alert(`${name} is already in contacts.`);
     }
 
     dispatch(addContact({ name, phone }));
