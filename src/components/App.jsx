@@ -4,13 +4,18 @@ import { Section } from './Section/Section';
 import { ContactsForm } from './ContactsForm/ContactsForm';
 import { ContactsList } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
-import { getContacts, fetchContacts, getIsLoading, getError } from 'reduxFiles';
+import {
+  selectContacts,
+  fetchContacts,
+  selectIsLoading,
+  selectError,
+} from 'reduxFiles';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const items = useSelector(getContacts);
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
+  const items = useSelector(selectContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -32,7 +37,7 @@ export const App = () => {
       </Section>
       <Section title="Contacts">
         <>
-          {isLoading && <p>Loading tasks...</p>}
+          {isLoading && !error && <p>Loading contacts...</p>}
           {error && <p>{error}</p>}
           {items.length > 0 && (
             <>

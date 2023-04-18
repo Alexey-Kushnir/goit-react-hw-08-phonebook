@@ -7,11 +7,11 @@ import {
   InputValue,
   SubmitButton,
 } from './ContactsForm.styled';
-import { getContacts, addContact } from 'reduxFiles';
+import { selectContacts, addContact } from 'reduxFiles';
 
 export const ContactsForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const handleSubmit = ({ name, phone }, { resetForm }) => {
     if (contacts.length > 0) {
