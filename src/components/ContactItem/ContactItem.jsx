@@ -6,7 +6,8 @@ import { deleteContact } from 'reduxFiles';
 export const Contact = ({ id, name, phone }) => {
   const dispatch = useDispatch();
   const handleDelete = () => {
-    console.log(id, name);
+    // console.log('del id', id);
+
     dispatch(deleteContact(id));
   };
 
