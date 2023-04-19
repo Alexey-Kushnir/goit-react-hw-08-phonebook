@@ -13,7 +13,7 @@ export const selectError = state => state.contacts.error;
 //   );
 // };
 
-//Для практики:
+//for practice:
 export const selectVisibleContacts = createSelector(
   [selectContacts, selectFilter],
   (contacts, filter) => {
