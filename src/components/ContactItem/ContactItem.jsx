@@ -5,7 +5,10 @@ import { deleteContact } from 'reduxFiles';
 
 export const Contact = ({ id, name, phone }) => {
   const dispatch = useDispatch();
-  const handleDelete = () => dispatch(deleteContact(id));
+  const handleDelete = () => {
+    console.log(id, name);
+    dispatch(deleteContact(id));
+  };
 
   return (
     <ContactItem>
