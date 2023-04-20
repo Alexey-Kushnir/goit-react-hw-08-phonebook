@@ -19,19 +19,19 @@ const contactSlice = createSlice({
       .addCase(deleteContact.fulfilled, (state, action) => {
         // console.log(action.payload.id);
 
-        const index = state.items.findIndex(
-          item => item.id === action.payload.id
-        );
+        // const index = state.items.findIndex(
+        //   item => item.id === action.payload.id
+        // );
 
         // console.log('index', index);
 
-        state.items.splice(index, 1);
-        // return state.items.filter(item => {
-        //   console.log('item.id', item.id);
-        //   console.log('action.payload.id', action.payload.id);
+        // state.items.splice(index, 1);
+        return state.items.filter(item => {
+          // console.log('item.id:', item.id);
+          console.log('action.payload:', action.payload);
 
-        //   return item.id !== action.payload.id;
-        // });
+          return item.id !== action.payload;
+        });
       })
       .addMatcher(
         isAnyOf(...extraActions.map(actions => actions.pending)),
