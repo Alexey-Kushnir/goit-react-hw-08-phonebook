@@ -12,3 +12,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Provider>
   </React.StrictMode>
 );
+
+
+//<BrowserRouter basename="/your_repo_name">
+//  <App />
+//</BrowserRouter>
