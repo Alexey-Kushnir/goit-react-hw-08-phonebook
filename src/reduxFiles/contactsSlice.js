@@ -17,15 +17,15 @@ const contactSlice = createSlice({
         state.items.push(action.payload);
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
-        const index = state.items.findIndex(
-          item => item.id === action.payload.id
-        );
-        state.items.splice(index, 1);
-        // return state.items.filter(item => {
-        //   console.log('item.id:', item.id);
-        //   console.log('action.payload:', action.payload.id);
-        //   return item.id !== action.payload.id;
-        // });
+        // const index = state.items.findIndex(
+        //   item => item.id === action.payload.id
+        // );
+        // state.items.splice(index, 1);
+
+        const arr = state.items.filter(item => {
+          return item.id !== action.payload.id;
+        });
+        state.items = arr;
       })
       .addMatcher(
         isAnyOf(...extraActions.map(actions => actions.pending)),
