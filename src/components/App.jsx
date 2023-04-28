@@ -21,10 +21,10 @@ const theme = createTheme({
     secondary: {
       main: '#37474f',
     },
-    // text: {
-    //   primary: '#37474f',
-    //   secondary: '#263238',
-    // },
+    text: {
+      primary: '#37474f',
+      secondary: '#263238',
+    },
   },
 });
 

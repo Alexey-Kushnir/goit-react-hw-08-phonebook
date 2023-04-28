@@ -1,5 +1,5 @@
 import { useContacts } from 'hooks';
-import { ContactItem } from 'components/ContactItem/ContactItem';
+import { ContactItem } from 'components/ContactItem';
 
 export const ContactsList = () => {
   const visibleContacts = useContacts();
