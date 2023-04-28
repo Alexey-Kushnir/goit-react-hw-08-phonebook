@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Typography } from '@mui/material';
 import { Section } from 'components/Section/Section';
 import { ContactsForm } from 'components/ContactsForm/ContactsForm';
 import { ContactsList } from 'components/ContactsList/ContactsList';
@@ -37,7 +38,9 @@ export default function Contacts() {
       </Section>
       <Section title="Contacts">
         <>
-          {isLoading && !error && <p>Loading contacts...</p>}
+          {isLoading && !error && (
+            <Typography variant="h6">Loading contacts...</Typography>
+          )}
           {error && <p>{error}</p>}
           {contacts.length > 0 && (
             <>

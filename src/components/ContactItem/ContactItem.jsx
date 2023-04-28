@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Contact, DeleteButton } from './ContactsItem.styled';
 import { deleteContact } from 'reduxFiles';
+import { Button, Typography } from '@mui/material';
 
 export const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
@@ -10,12 +11,32 @@ export const ContactItem = ({ id, name, number }) => {
   };
 
   return (
-    <Contact>
-      {name}: {number}
-      <DeleteButton type="button" onClick={handleDelete}>
-        Delete
-      </DeleteButton>
-    </Contact>
+    <li>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <Typography
+          variant="body1"
+          sx={{
+            fontSize: '22px',
+            fontWeight: 'normal',
+          }}
+        >
+          {name}: {number}
+        </Typography>
+        <Button
+          onClick={handleDelete}
+          variant="contained"
+          size="small"
+          color="secondary"
+          sx={{
+            fontSize: '10px',
+            fontWeight: 'normal',
+            marginLeft: 'auto',
+          }}
+        >
+          Delete
+        </Button>
+      </div>
+    </li>
   );
 };
 
