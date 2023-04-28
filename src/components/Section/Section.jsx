@@ -1,16 +1,15 @@
 import PropTypes from 'prop-types';
-// import { SectionStyled, Title } from './Section.styled';
 import { Typography, Container } from '@mui/material';
 
 export const Section = ({ title, children }) => {
   return (
-    <Container sx={{ padding: '0 20px', margin: '0 auto', width: 400 }}>
+    <Container sx={{ padding: '0 20px', margin: '50 auto', width: 400 }}>
       <Typography
         variant="h2"
         sx={{
           fontSize: 30,
           fontWeight: 'bold',
-          paddingTop: 10,
+          paddingTop: '40px',
           margin: '0 0 20px 0',
         }}
       >

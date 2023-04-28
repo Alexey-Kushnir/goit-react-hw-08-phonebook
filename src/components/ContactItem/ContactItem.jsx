@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { Contact, DeleteButton } from './ContactsItem.styled';
 import { deleteContact } from 'reduxFiles';
 import { Button, Typography } from '@mui/material';
 

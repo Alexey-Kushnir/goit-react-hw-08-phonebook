@@ -2,15 +2,8 @@
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  Container,
-  InputName,
-  InputValue,
-  SubmitButton,
-} from './ContactsForm.styled';
 import { selectContacts, addContact } from 'reduxFiles';
 import { Button, TextField } from '@mui/material';
-import { FormControl } from '@mui/material';
 
 export const ContactsForm = () => {
   const dispatch = useDispatch();
@@ -50,7 +43,7 @@ export const ContactsForm = () => {
         <TextField
           label="Name"
           size="small"
-          sx={{ height: 22, fontSize: 16, mb: '20px' }}
+          sx={{ height: 22, fontSize: 16, mb: '20px', minWidth: '352px' }}
           variant="outlined"
           type="text"
           name="name"
@@ -63,6 +56,7 @@ export const ContactsForm = () => {
         <TextField
           label="Phone"
           size="small"
+          sx={{ height: 22, fontSize: 16, mb: '20px', minWidth: '352px' }}
           type="tel"
           name="number"
           value={formik.values.number}

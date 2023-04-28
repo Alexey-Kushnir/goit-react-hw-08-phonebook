@@ -5,6 +5,8 @@ import { Section } from 'components/Section/Section';
 import { ContactsForm } from 'components/ContactsForm/ContactsForm';
 import { ContactsList } from 'components/ContactsList/ContactsList';
 import { Filter } from 'components/Filter/Filter';
+import { Helmet } from 'react-helmet';
+
 import {
   selectContacts,
   fetchContacts,
@@ -33,19 +35,25 @@ export default function Contacts() {
         color: '#010101',
       }}
     >
+      <Helmet>
+        <title>Contacts</title>
+      </Helmet>
       <Section title="Phonebook">
         <ContactsForm />
       </Section>
       <Section title="Contacts">
         <>
-          {isLoading && !error && (
-            <Typography variant="h6">Loading contacts...</Typography>
-          )}
           {error && <p>{error}</p>}
           {contacts.length > 0 && (
             <>
               <Filter />
-              <ContactsList />
+              {isLoading && !error ? (
+                <Typography variant="h6" sx={{ m: '40px 0' }}>
+                  Loading contacts...
+                </Typography>
+              ) : (
+                <ContactsList />
+              )}
             </>
           )}
         </>

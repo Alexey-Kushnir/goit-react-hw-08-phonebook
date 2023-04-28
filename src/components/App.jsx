@@ -16,14 +16,14 @@ const ContactsPage = lazy(() => import('../pages/Contacts'));
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#c62828',
+      main: '#1976d2',
     },
     secondary: {
-      main: '#424242',
+      main: '#37474f',
     },
     // text: {
-    //   primary: '#263238',
-    //   secondary: '#455a64',
+    //   primary: '#37474f',
+    //   secondary: '#263238',
     // },
   },
 });

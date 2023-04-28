@@ -1,5 +1,4 @@
 import { useContacts } from 'hooks';
-import { List } from './ContactsList.styled';
 import { ContactItem } from 'components/ContactItem/ContactItem';
 
 export const ContactsList = () => {
@@ -8,11 +7,11 @@ export const ContactsList = () => {
   return (
     <>
       {visibleContacts.length > 0 && (
-        <List>
+        <ul style={{ listStyle: 'none', padding: 'unset' }}>
           {visibleContacts.map(({ id, name, number }) => {
             return <ContactItem key={id} id={id} name={name} number={number} />;
           })}
-        </List>
+        </ul>
       )}
     </>
   );

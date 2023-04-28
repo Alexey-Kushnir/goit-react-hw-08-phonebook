@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-// import { FilterTitle, FilterInput } from './Filter.styled';
 import { setFilter } from 'reduxFiles';
 import { useFilter } from 'hooks';
 import { TextField } from '@mui/material';
@@ -17,7 +16,7 @@ export const Filter = () => {
       <TextField
         label="Find contacts by name"
         size="small"
-        sx={{ height: 22, fontSize: 16, mb: '15px' }}
+        sx={{ height: 22, fontSize: 16, mb: '15px', minWidth: '352px' }}
         variant="outlined"
         type="text"
         value={filter}
