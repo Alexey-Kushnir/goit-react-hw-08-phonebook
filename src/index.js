@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { store, persistor } from 'reduxFiles';
 import { App } from 'components/App';
 import './index.css';
+import '@fontsource/roboto';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -45,7 +45,7 @@ export const ContactsForm = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-        <SubmitButton type="submit">Ad contact</SubmitButton>
+        <SubmitButton type="submit">Add contact</SubmitButton>
       </Container>
     </Formik>
   );
