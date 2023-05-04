@@ -38,6 +38,7 @@ export const LoginForm = () => {
           fontSize: 16,
         }}
         variant="outlined"
+        required
       />
       <TextField
         type="password"
@@ -49,6 +50,7 @@ export const LoginForm = () => {
           fontSize: 16,
         }}
         variant="outlined"
+        required
       />
       <Button
         type="submit"

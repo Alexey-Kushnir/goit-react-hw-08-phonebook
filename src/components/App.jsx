@@ -1,12 +1,12 @@
 import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Layout } from './Layout';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { refreshUser } from 'reduxFiles';
 import { useAuth } from 'hooks';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -21,9 +21,13 @@ const theme = createTheme({
     secondary: {
       main: '#37474f',
     },
-    text: {
-      primary: '#37474f',
-      secondary: '#263238',
+  },
+  typography: {
+    body1: {
+      color: '#37474f',
+    },
+    h2: {
+      color: '#1976d2',
     },
   },
 });

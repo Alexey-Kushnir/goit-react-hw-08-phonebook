@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
 import { registerUser } from 'reduxFiles';
 import { Button, TextField } from '@mui/material';
 
@@ -8,14 +9,19 @@ export const RegisterForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
-    dispatch(
-      registerUser({
-        name: form.elements.name.value,
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
-    form.reset();
+    if (form.elements.password.value === form.elements.confirm.value) {
+      dispatch(
+        registerUser({
+          name: form.elements.name.value,
+          email: form.elements.email.value,
+          password: form.elements.password.value,
+        })
+      );
+      form.reset();
+      toast.success('Successfully created!');
+    } else {
+      toast.error('This is an error!');
+    }
   };
 
   return (
@@ -39,6 +45,7 @@ export const RegisterForm = () => {
           fontSize: 16,
         }}
         variant="outlined"
+        required
       />
       <TextField
         type="email"
@@ -50,6 +57,7 @@ export const RegisterForm = () => {
           fontSize: 16,
         }}
         variant="outlined"
+        required
       />
       <TextField
         type="password"
@@ -61,6 +69,19 @@ export const RegisterForm = () => {
           fontSize: 16,
         }}
         variant="outlined"
+        required
+      />
+      <TextField
+        type="password"
+        name="confirm"
+        label="Confirm"
+        size="small"
+        sx={{
+          height: 22,
+          fontSize: 16,
+        }}
+        variant="outlined"
+        required
       />
       <Button
         type="submit"

@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import { Typography } from '@mui/material';
 import { Section } from 'components/Section';
 import { ContactsForm } from 'components/ContactsForm';
 import { ContactsList } from 'components/ContactsList';
 import { Filter } from 'components/Filter';
-import { Helmet } from 'react-helmet';
 
 import {
   selectContacts,

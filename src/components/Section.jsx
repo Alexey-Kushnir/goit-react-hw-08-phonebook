@@ -7,6 +7,7 @@ export const Section = ({ title, children }) => {
       <Typography
         variant="h2"
         sx={{
+          // color: 'red',
           fontSize: 30,
           fontWeight: 'bold',
           paddingTop: '40px',

@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 // import { registerUser, logInUser, logOutUser, refreshUser } from 'reduxFiles';
+import { toast } from 'react-hot-toast';
 
 import {
   registerUser,
@@ -24,8 +25,10 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        toast.success('Successfully LoggedIn!');
       })
       .addCase(registerUser.rejected, action => {
+        toast.error('This is an error!');
         // console.log(action.payload.response.data.errors.message);
         console.log(action.payload);
       })

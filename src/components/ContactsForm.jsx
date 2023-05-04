@@ -1,9 +1,9 @@
-// import { Formik } from 'formik';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, addContact } from 'reduxFiles';
 import { Button, TextField } from '@mui/material';
+import { toast } from 'react-hot-toast';
 
 export const ContactsForm = () => {
   const dispatch = useDispatch();
@@ -21,9 +21,11 @@ export const ContactsForm = () => {
           contact => contact.name.toLowerCase() === name.toLowerCase()
         )
       ) {
-        return alert(`${name} is already in contacts.`);
+        return toast.error(`${name} is already in contacts.`);
+        // return alert(`${name} is already in contacts.`);
       }
       dispatch(addContact({ name, number }));
+      toast.success('Contact successfully created!');
       return resetForm();
     },
   });
