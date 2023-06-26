@@ -22,7 +22,6 @@ export const ContactsForm = () => {
         )
       ) {
         return toast.error(`${name} is already in contacts.`);
-        // return alert(`${name} is already in contacts.`);
       }
       dispatch(addContact({ name, number }));
       toast.success('Contact successfully created!');
